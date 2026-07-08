@@ -33,7 +33,12 @@ const dnsConfig = {
     "time.*.com",
     "time.*.gov",
     "pool.ntp.org",
-    "localhost.work.weixin.qq.com"
+    "localhost.work.weixin.qq.com",
+    "+.weixin.qq.com",
+    "+.wechat.com",
+    "+.qpic.cn",
+    "+.qq.com",
+    "+.tenpay.com"
   ],
   "default-nameserver": ["223.5.5.5", "1.2.4.8"],
   "nameserver": [...foreignNameservers],
@@ -186,6 +191,20 @@ const rules = [
   "DOMAIN-SUFFIX,wf.wf2016uu.xyz,全局直连,no-resolve",
   "DOMAIN-SUFFIX,www.wf2016uu.xyz,全局直连,no-resolve",
   "DOMAIN-SUFFIX,mp.weixin.qq.com,全局直连,no-resolve",
+
+  // ===== 屏蔽 QUIC (迫使微信、Chrome 等回退到更稳定的 TCP) =====
+  "AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOIP,CN))),REJECT",
+
+  // ===== 微信及腾讯系图片 CDN 强制直连 =====
+  "DOMAIN-KEYWORD,weixin,全局直连",
+  "DOMAIN-SUFFIX,qpic.cn,全局直连",
+  "DOMAIN-SUFFIX,qlogo.cn,全局直连",
+  "DOMAIN-SUFFIX,servicewechat.com,全局直连",
+  "DOMAIN-SUFFIX,tenpay.com,全局直连",
+  "DOMAIN-SUFFIX,qq.com,全局直连",
+  "DOMAIN-SUFFIX,gtimg.cn,全局直连",
+  "DOMAIN-SUFFIX,wechat.com,全局直连",
+  "DOMAIN-SUFFIX,wechatos.net,全局直连",
 
   // ===== NotebookLM / Gemini / Google AI Studio (精准强制走 AI 策略组) =====
   "DOMAIN-SUFFIX,notebooklm.google,AI",
