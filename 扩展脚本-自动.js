@@ -203,6 +203,10 @@ const rules = [
   "DOMAIN-SUFFIX,wechat.com,全局直连",
   "DOMAIN-SUFFIX,wechatos.net,全局直连",
 
+  // ===== 即梦国际版 (Dreamina / CapCut) =====
+  "DOMAIN-SUFFIX,capcut.com,美国自动",
+  "DOMAIN-KEYWORD,capcut,美国自动",
+
   // ===== NotebookLM / Gemini / Google AI Studio (精准强制走 AI 策略组) =====
   "DOMAIN-SUFFIX,notebooklm.google,自动选择",
   "DOMAIN-SUFFIX,notebooklm.google.com,自动选择",
