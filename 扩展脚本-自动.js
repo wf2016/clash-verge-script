@@ -291,7 +291,7 @@ function main(config) {
       ...groupBaseOption,
       "name": "自动选择",
       "type": "fallback",
-      "proxies": ["美国自动", "新加坡自动", "日本自动"],
+      "proxies": ["新加坡自动", "日本自动", "美国自动"],
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/adjust.svg"
     },
     {
